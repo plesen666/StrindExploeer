@@ -8,6 +8,7 @@ import pro.sky.stringEmploeerProekt.model.Employee;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 @Service
 public class EmloyeeServiceImpl implements EmployeeService {
     private final List<Employee> employeeList;
@@ -19,7 +20,7 @@ public class EmloyeeServiceImpl implements EmployeeService {
     @Override
     public Employee add(String firstName, String lastName) {
         Employee employee = new Employee(firstName, lastName);
-        if(employeeList.contains(employee)){
+        if (employeeList.contains(employee)) {
             throw new EmployeeAlreadyAddedException();
         }
         employeeList.add(employee);
@@ -41,8 +42,9 @@ public class EmloyeeServiceImpl implements EmployeeService {
         }
         throw new EmployeeNotFoundException();
     }
+
     @Override
-    public Collection<Employee> findAll(){
+    public Collection<Employee> findAll() {
         return employeeList;
     }
 }
