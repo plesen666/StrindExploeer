@@ -1,4 +1,4 @@
-package pro.sky.stringEmploeerProekt;
+package pro.sky.stringEmploeerProekt.model;
 
 
 import java.util.Objects;
@@ -13,6 +13,7 @@ public class Employee {
         // Это конструктор класса Employee, который принимает два параметра firstName и lastName типа String. Он инициализирует приватные поля firstName и lastName значениями, переданными в конструктор. Конструктор вызывается при создании нового объекта класса Employee.
     }
     public String getFirstName() {
+
         return firstName;
     }
     public String getLastName() {
@@ -23,7 +24,7 @@ public class Employee {
     @Override
     public boolean equals(Object o) { //проверяет, равны ли два объекта Employee
         if (this == o) return true;// если объект, с которым сравниваем, является тем же самым объектом, что и текущий объект, то возвращаем true
-        if (o == null || getClass() != o.getClass()) return false;//если объект, с которым сравниваем, является null или не является объектом класса Employee, то возвращаем false.
+        if (!(o instanceof Employee)) return false;//если объект, с которым сравниваем, является null или не является объектом класса Employee, то возвращаем false.
         Employee employee = (Employee) o;//преобразуем объект, с которым сравниваем, в объект класса Employee.
         return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);// возвращаем true, если имена и фамилии двух объектов равны, и false в противном случае.
     }
